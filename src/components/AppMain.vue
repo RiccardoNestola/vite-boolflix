@@ -20,9 +20,23 @@ export default {
 
 <template>
     <h1>main</h1>
-    <p>
-        {{ store.movieList }}
-    </p>
+    <nav>
+        <ul v-for="movies in store.moviesList">
+            <li>
+                <p>{{ movies.title }}</p>
+            </li>
+            <li>
+                <p>{{ movies.original_title }}</p>
+            </li>
+            <li>
+                <p>{{ movies.original_language }}</p>
+            </li>
+            <li>
+                <p>{{ movies.vote_average }}</p>
+            </li>
+        </ul>
+    </nav>
+
 </template>
 
 <style lang="scss" >

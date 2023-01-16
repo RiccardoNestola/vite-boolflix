@@ -19,18 +19,18 @@ export default {
   },
 
   methods: {
-    getMovies() {
+    getMovies(search) {
       axios.get(this.apiUrl, {
         params: {
           api_key: this.apiKey,
-          query: 'Harry'
+          query: search
           //insert params
 
         }
       })
         .then((response) => {
           console.log(response.data.results);
-          this.store.movieList = response.data.results;
+          this.store.moviesList = response.data.results;
         })
         .catch(function (error) {
           console.log(error);
@@ -40,7 +40,7 @@ export default {
   },
 
   created() {
-    this.getMovies();
+    /* this.getMovies(); */
   }
 
 }
@@ -50,7 +50,7 @@ export default {
 
 <template>
 
-  <AppHeader />
+  <AppHeader @inputSearch="getMovies" />
 
   <AppMain />
 

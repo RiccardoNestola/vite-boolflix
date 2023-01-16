@@ -21,8 +21,8 @@ export default {
 
 <template>
     <h1>header</h1>
-    <!-- <input type="text" name="" id="" placeholder="Cerca" v-model="store.textSearchOutput"
-        @keyup.enter="$emit('inputSearch', store.textSearchOutput)"> -->
+    <input type="text" name="" id="" placeholder="Cerca" v-model="store.textSearchOutput"
+        @keyup.enter="$emit('inputSearch', store.textSearchOutput)">
 
 </template>
 
