@@ -10,6 +10,7 @@ export default {
     data() {
         return {
             store,
+            textSearchOutput: " ",
 
         }
     }
@@ -20,9 +21,13 @@ export default {
 </script>
 
 <template>
-    <h1>header</h1>
-    <input type="text" name="" id="" placeholder="Cerca" v-model="store.textSearchOutput"
-        @keyup.enter="$emit('inputSearch', store.textSearchOutput)">
+    <div>
+        <h1>header</h1>
+        <input type="text" name="" id="" placeholder="Cerca" v-model="textSearchOutput">
+
+        <button @click="$emit('inputSearch', textSearchOutput)">Cerca</button>
+    </div>
+
 
 </template>
 

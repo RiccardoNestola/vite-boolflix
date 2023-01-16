@@ -19,7 +19,7 @@ export default {
 </script>
 
 <template>
-    <h1>main</h1>
+    <h1>Film</h1>
     <nav>
         <ul v-for="movies in store.moviesList">
             <li>
@@ -33,6 +33,22 @@ export default {
             </li>
             <li>
                 <p>{{ movies.vote_average }}</p>
+            </li>
+        </ul>
+    </nav>
+
+    <h1>TV</h1>
+
+    <nav>
+        <ul v-for="tv in store.moviesListTv">
+            <li>
+                <p>{{ tv.original_name }}</p>
+            </li>
+            <li>
+                <p>{{ tv.original_language }}</p>
+            </li>
+            <li>
+                <p>{{ tv.vote_average }}</p>
             </li>
         </ul>
     </nav>
