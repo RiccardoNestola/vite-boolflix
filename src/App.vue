@@ -13,8 +13,8 @@ export default {
   data() {
     return {
       store,
-      ApiKey: '',
-      ApiUrl: '',
+      ApiKey: 'dd1c7b6684085e73b6e148e8a93edf44',
+      ApiUrl: 'https://api.themoviedb.org/3/movie/',
     }
   },
   methods: {
@@ -28,7 +28,7 @@ export default {
       })
         .then((response) => {
           console.log(response.data);
-          this.store.CharactersList = response.data.results;
+          this.store.getMovies = response.data.results;
         })
         .catch(function (error) {
           console.log(error);
