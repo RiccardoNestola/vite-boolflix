@@ -1,16 +1,34 @@
 <script>
+import { store } from "../store"
 
 export default {
+    name: "AppMain",
+
+    components: {
+    },
+
+    data() {
+        return {
+            store,
+
+        }
+    }
 
 }
+
 </script>
 
 <template>
-    <div>
-        <h1>Main</h1>
-    </div>
+    <h1>main</h1>
+    <nav>
+        <ul>
+            <li>prima card</li>
+
+        </ul>
+    </nav>
 </template>
 
-<style lang="scss">
-
+<style lang="scss" >
+@use "../styles/general.scss" as *;
+@use "../styles/partials/variables.scss" as *;
 </style>

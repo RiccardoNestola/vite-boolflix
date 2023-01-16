@@ -13,21 +13,23 @@ export default {
   data() {
     return {
       store,
-      ApiKey: 'dd1c7b6684085e73b6e148e8a93edf44',
-      ApiUrl: 'https://api.themoviedb.org/3/movie/',
+      apiKey: 'dd1c7b6684085e73b6e148e8a93edf44',
+      apiUrl: 'https://api.themoviedb.org/3/search/movie',
     }
   },
+
   methods: {
     getMovies() {
-      axios.get(this.ApiUrl, {
+      axios.get(this.apiUrl, {
         params: {
-
+          api_key: this.apiKey,
+          query: 'Harry'
           //insert params
 
         }
       })
         .then((response) => {
-          console.log(response.data);
+          console.log(response.data.results);
           this.store.getMovies = response.data.results;
         })
         .catch(function (error) {
