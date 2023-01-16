@@ -13,6 +13,12 @@ export default {
             textSearchOutput: " ",
 
         }
+    },
+
+    methods: {
+        searchAll(textSearchOutput) {
+            this.$emit('inputSearch', textSearchOutput)
+        }
     }
 
 }
@@ -23,9 +29,10 @@ export default {
 <template>
     <div>
         <h1>header</h1>
-        <input type="text" name="" id="" placeholder="Cerca" v-model="textSearchOutput">
+        <input type="text" name="" id="" placeholder="Cerca" v-model="textSearchOutput"
+            @keyup.enter="searchAll(textSearchOutput)">
 
-        <button @click="$emit('inputSearch', textSearchOutput)">Cerca</button>
+        <button @click="searchAll(textSearchOutput)">Cerca</button>
     </div>
 
 
