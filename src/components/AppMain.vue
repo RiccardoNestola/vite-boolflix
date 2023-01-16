@@ -20,12 +20,9 @@ export default {
 
 <template>
     <h1>main</h1>
-    <nav>
-        <ul>
-            <li>prima card</li>
-
-        </ul>
-    </nav>
+    <p>
+        {{ store.movieList }}
+    </p>
 </template>
 
 <style lang="scss" >

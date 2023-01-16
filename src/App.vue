@@ -30,7 +30,7 @@ export default {
       })
         .then((response) => {
           console.log(response.data.results);
-          this.store.getMovies = response.data.results;
+          this.store.movieList = response.data.results;
         })
         .catch(function (error) {
           console.log(error);
