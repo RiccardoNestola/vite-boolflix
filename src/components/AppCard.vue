@@ -9,7 +9,9 @@ export default {
 
     data() {
         return {
-            store
+            store,
+            imageAvailable: true,
+            imageNotAvailable: "not.png"
 
         }
     },
@@ -33,10 +35,12 @@ export default {
 
 
         <div class="card" v-for="movies in store.moviesList">
-            <img :src="'https://image.tmdb.org/t/p/w342/' + movies.poster_path" :alt="movies.title">
+            <img v-if="imageAvailable" :src="'https://image.tmdb.org/t/p/w342/' + movies.poster_path"
+                :alt="movies.title">
+            <img v-else :src="imageNotAvailable" alt="Image Not Available">
             <div class="card-content">
                 <h2> {{ movies.title }}</h2>
-                <p class="desc">{{ movies.overview }}</p>
+                <p class="card-hover-text">{{ movies.overview }}</p>
                 <div class="card-info">
                     <p>{{ movies.vote_average }}</p>
                     <img class="lang" :src="getImagePath(movies.original_language)" alt="lag">
@@ -51,7 +55,7 @@ export default {
             <img :src="'https://image.tmdb.org/t/p/w342/' + tv.poster_path" :alt="tv.title">
             <div class="card-content">
                 <h2> {{ tv.original_name }}</h2>
-                <p class="desc">{{ tv.overview }}</p>
+                <p class="card-hover-text">{{ tv.overview }}</p>
                 <div class="card-info">
                     <p>{{ tv.vote_average }}</p>
                     <img class="lang" :src="getImagePath(tv.original_language)" alt="lag">
@@ -101,6 +105,7 @@ export default {
 .card img {
     width: 100%;
     border-radius: 10px 10px 0px 0px;
+
 }
 
 .card-content {
@@ -110,6 +115,15 @@ export default {
     overflow: scroll;
 
 }
+
+.card-hover-text {
+    display: none;
+}
+
+.card:hover .card-hover-text {
+    display: block;
+}
+
 
 .card-content h2 {
     font-size: 24px;

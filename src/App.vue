@@ -40,7 +40,7 @@ export default {
 
     },
 
-    getTvs(searchTv = "harry") {
+    getTvs(searchTv = "better") {
       axios.get(this.apiUrlTv, {
         params: {
           api_key: this.apiKey,
