@@ -23,45 +23,7 @@ export default {
 <template>
 
     <AppCard />
-    <h1>Film</h1>
-    <nav>
-        <ul v-for="movies in store.moviesList">
-            <li>
-                <p>{{ movies.title }}</p>
-            </li>
-            <li>
-                <p>{{ movies.original_title }}</p>
-            </li>
-            <li>
-                <p>{{ movies.original_language }}</p>
-            </li>
-            <li>
-                <p>{{ movies.vote_average }}</p>
-            </li>
-            <li>
-                <img :src="'https://image.tmdb.org/t/p/w342/' + movies.poster_path" :alt="movies.title">
-            </li>
-        </ul>
-    </nav>
 
-    <h1>TV</h1>
-
-    <nav>
-        <ul v-for="tv in store.moviesListTv">
-            <li>
-                <p>{{ tv.original_name }}</p>
-            </li>
-            <li>
-                <p>{{ tv.original_language }}</p>
-            </li>
-            <li>
-                <p>{{ tv.vote_average }}</p>
-            </li>
-            <li>
-                <img :src="'https://image.tmdb.org/t/p/w342/' + tv.poster_path" :alt="tv.title">
-            </li>
-        </ul>
-    </nav>
 
 </template>
 
