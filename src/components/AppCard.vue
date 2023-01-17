@@ -11,7 +11,7 @@ export default {
         return {
             store,
             imageAvailable: true,
-            imageNotAvailable: "not.png"
+
 
         }
     },
@@ -37,7 +37,7 @@ export default {
         <div class="card" v-for="movies in store.moviesList">
             <img v-if="imageAvailable" :src="'https://image.tmdb.org/t/p/w342/' + movies.poster_path"
                 :alt="movies.title">
-            <img v-else :src="imageNotAvailable" alt="Image Not Available">
+            <img v-else src="/not.png" alt="Image Not Available">
             <div class="card-content">
                 <h2> {{ movies.title }}</h2>
                 <p class="card-hover-text">{{ movies.overview }}</p>
@@ -101,6 +101,11 @@ export default {
     position: relative;
 }
 
+@media (max-width: 768px) {
+    .card {
+        width: 100%;
+    }
+}
 
 .card img {
     width: 100%;
