@@ -1,10 +1,12 @@
 <script>
+import AppCard from './AppCard.vue'
 import { store } from "../store"
 
 export default {
     name: "AppMain",
 
     components: {
+        AppCard
     },
 
     data() {
@@ -19,6 +21,8 @@ export default {
 </script>
 
 <template>
+
+    <AppCard />
     <h1>Film</h1>
     <nav>
         <ul v-for="movies in store.moviesList">
@@ -33,6 +37,9 @@ export default {
             </li>
             <li>
                 <p>{{ movies.vote_average }}</p>
+            </li>
+            <li>
+                <img :src="'https://image.tmdb.org/t/p/w342/' + movies.poster_path" :alt="movies.title">
             </li>
         </ul>
     </nav>
@@ -49,6 +56,9 @@ export default {
             </li>
             <li>
                 <p>{{ tv.vote_average }}</p>
+            </li>
+            <li>
+                <img :src="'https://image.tmdb.org/t/p/w342/' + tv.poster_path" :alt="tv.title">
             </li>
         </ul>
     </nav>
