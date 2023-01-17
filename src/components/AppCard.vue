@@ -36,7 +36,7 @@ export default {
             <img :src="'https://image.tmdb.org/t/p/w342/' + movies.poster_path" :alt="movies.title">
             <div class="card-content">
                 <h2> {{ movies.title }}</h2>
-                <p>{{ movies.overview }}</p>
+                <p class="desc">{{ movies.overview }}</p>
                 <div class="card-info">
                     <p>{{ movies.vote_average }}</p>
                     <img class="lang" :src="getImagePath(movies.original_language)" alt="lag">
@@ -51,7 +51,7 @@ export default {
             <img :src="'https://image.tmdb.org/t/p/w342/' + tv.poster_path" :alt="tv.title">
             <div class="card-content">
                 <h2> {{ tv.original_name }}</h2>
-                <p>{{ tv.overview }}</p>
+                <p class="desc">{{ tv.overview }}</p>
                 <div class="card-info">
                     <p>{{ tv.vote_average }}</p>
                     <img class="lang" :src="getImagePath(tv.original_language)" alt="lag">
@@ -106,6 +106,9 @@ export default {
 .card-content {
     padding: 20px;
     color: #ffffff;
+    height: 300px;
+    overflow: scroll;
+
 }
 
 .card-content h2 {
@@ -116,7 +119,13 @@ export default {
 .card-content p {
     font-size: 18px;
     margin: 0;
+
+    .desc p {
+        display: none;
+    }
 }
+
+
 
 .card-info {
     display: flex;
