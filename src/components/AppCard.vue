@@ -10,7 +10,6 @@ export default {
     data() {
         return {
             store,
-            imageAvailable: true,
 
 
         }
@@ -35,7 +34,7 @@ export default {
 
 
         <div class="card" v-for="movies in store.moviesList">
-            <img v-if="imageAvailable" :src="'https://image.tmdb.org/t/p/w342/' + movies.poster_path"
+            <img v-if="movies.poster_path != null" :src="'https://image.tmdb.org/t/p/w342/' + movies.poster_path"
                 :alt="movies.title">
             <img v-else src="/not.png" alt="Image Not Available">
             <div class="card-content">
