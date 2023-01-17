@@ -80,11 +80,11 @@ export default {
 </script>
 
 <template>
-  <header>
 
-    <AppHeader @inputSearch="getSearch" />
 
-  </header>
+  <AppHeader @inputSearch="getSearch" />
+
+
 
 
 

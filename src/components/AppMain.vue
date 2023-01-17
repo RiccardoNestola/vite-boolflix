@@ -21,13 +21,20 @@ export default {
 </script>
 
 <template>
+    <main>
+        <AppCard />
+    </main>
 
-    <AppCard />
 
 
 </template>
 
-<style lang="scss" >
+<style lang="scss" scoped>
 @use "../styles/general.scss" as *;
 @use "../styles/partials/variables.scss" as *;
+
+main {
+    width: 90%;
+    margin: 2rem auto;
+}
 </style>
