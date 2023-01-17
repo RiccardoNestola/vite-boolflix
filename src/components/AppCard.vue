@@ -10,6 +10,8 @@ export default {
     data() {
         return {
             store,
+            fullVote: [],
+            emptyVote: [],
 
 
         }
@@ -18,7 +20,14 @@ export default {
     methods: {
         getImagePath: function (img) {
             return new URL(`../assets/img/flags/${img}.png`, import.meta.url).href;
-        }
+        },
+
+        getVote(num) {
+            return Math.ceil(num / 2)
+        },
+
+    },
+    created() {
 
     }
 
@@ -40,8 +49,13 @@ export default {
             <div class="card-content">
                 <h2> {{ movies.title }}</h2>
                 <p class="card-hover-text">{{ movies.overview }}</p>
+
+
+
                 <div class="card-info">
-                    <p>{{ movies.vote_average }}</p>
+                    <div class="card-vote">
+                        <i v-for="n in getVote(movies.vote_average)" class="fa-solid fa-star"></i>
+                    </div>
                     <img class="lang" :src="getImagePath(movies.original_language)" alt="lag">
                 </div>
             </div>
@@ -51,12 +65,19 @@ export default {
         </div>
 
         <div class="card" v-for="tv in store.moviesListTv">
-            <img :src="'https://image.tmdb.org/t/p/w342/' + tv.poster_path" :alt="tv.title">
+            <img v-if="tv.poster_path != null" :src="'https://image.tmdb.org/t/p/w342/' + tv.poster_path"
+                :alt="tv.title">
+            <img v-else src="/not.png" alt="Image Not Available">
             <div class="card-content">
                 <h2> {{ tv.original_name }}</h2>
                 <p class="card-hover-text">{{ tv.overview }}</p>
+
+
+
                 <div class="card-info">
-                    <p>{{ tv.vote_average }}</p>
+                    <div class="card-vote">
+                        <i v-for="n in getVote(tv.vote_average)" class="fa-solid fa-star"></i>
+                    </div>
                     <img class="lang" :src="getImagePath(tv.original_language)" alt="lag">
                 </div>
             </div>
@@ -150,6 +171,7 @@ export default {
     justify-content: space-between;
     margin-top: 20px;
     padding-bottom: 5rem;
+    align-items: center;
 }
 
 .card-info p {
